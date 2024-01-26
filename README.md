@@ -50,9 +50,6 @@ pip install -r requirements.txt
 - `main_video.py`: Main script for running the facial recognition model.
 - `requirements.txt`: List of Python dependencies.
 
-### Support
-For any queries or technical assistance, please contact the TA during office hours or post your questions on the course forum.
-
 ### Acknowledgments
 - OpenCV contributors
 - PyTorch community
