@@ -34,3 +34,55 @@ The code defines a class `FaceDetectionDNN` for detecting faces in an image usin
 ## Dependencies
 - OpenCV (`cv2`): A computer vision library used for image processing and DNN operations.
 - NumPy (`np`): A library for numerical operations, used here for array manipulations.
+
+
+# Facial Recognition Using PyTorch and facenet_pytorch
+
+This script defines a class `FacialRecognition` that uses a deep learning model to recognize faces in images.
+
+## Class: FacialRecognition
+
+### Initializer: `__init__(self)`
+- Initializes an instance of `FacialRecognition` class.
+- Sets `self.num_faces_recognized` to zero, which tracks the number of recognized faces.
+
+### Method: `setup_model(self)`
+- Sets up the facial recognition model.
+- Determines whether to use a GPU (`cuda:0`) if available, otherwise uses CPU.
+- Loads a pre-trained InceptionResnetV1 model from `facenet_pytorch`, specifically trained on the 'vggface2' dataset.
+- Disables training for all layers of the model (`param.requires_grad = False`).
+- Moves the model to the appropriate device (GPU or CPU).
+- Loads a trained model state from a file (`trained_model.pt`).
+- Defines image transformation steps including resizing, converting to tensor, and normalizing.
+- Returns the configured model and the transformation pipeline.
+
+### Method: `recognize_face(self, model, transform, frame, faces_bounding_box)`
+- Performs facial recognition on a given frame.
+- Uses the provided model and transformation pipeline.
+- Iterates over detected faces (given by `faces_bounding_box`):
+  - Extracts and preprocesses each face from the frame.
+  - Applies the transformation to the face and predicts using the model.
+  - Increments `self.num_faces_recognized` if the model recognizes a specific individual (e.g., "angelina").
+  - Annotates the frame with the recognition result.
+- Returns the annotated frame and the last recognition result.
+
+### Method: `print_num_faces_recognized(self, frame)`
+- Adds text to the frame displaying the number of faces recognized.
+- Returns the modified frame.
+
+## Main Execution
+- If the script is the main program, it creates an instance of `FacialRecognition` and sets up the model.
+
+## Dependencies
+- `cv2`: OpenCV library for image processing.
+- `torch` and `torch.nn`: PyTorch library for deep learning models.
+- `PIL`: Python Imaging Library for image manipulation.
+- `numpy`: Library for numerical operations.
+- `torchvision`: A part of PyTorch for computer vision tasks.
+- `facenet_pytorch`: A PyTorch implementation of the Inception Resnet V1 model for face recognition.
+- `ssl`: SSL library for handling secure connections, here used to bypass SSL verification for simplicity.
+
+## Notes
+- The script assumes that the model file `trained_model.pt` and the facial recognition model (`InceptionResnetV1`) are specifically trained or fine-tuned for recognizing certain individuals.
+- It is designed to recognize whether a detected face matches a specific individual (e.g., "angelina") or not.
+- The script uses a threshold (not explicitly shown) to decide whether the model's prediction is confident enough.
