@@ -1,56 +1,67 @@
 # Celebrity-Facial-Recognition
 ENGR 2900 Project 1 - Celebrity Facial Recognition
 
-### Introduction
-This project involves implementing a pipeline to detect and recognize a celebrity's identity by their facial features. The project utilizes face detection and facial recognition algorithms to identify celebrities in both images and videos.
+# Real-Time Face Detection and Recognition System
 
-### Project Structure
-The project includes several components:
-1. Face detection using DNN face detector from OpenCV.
-2. Dataset preparation for training the facial recognition model.
-3. Training a convolutional neural network using PyTorch for facial recognition.
-4. Implementing the trained model to recognize celebrities in videos and webcam streams.
+This project is a comprehensive system for real-time face detection and recognition using Python, OpenCV, PyTorch, and the facenet_pytorch library. It processes video input to detect faces and, optionally, recognize specific individuals.
 
-### Getting Started
-#### Prerequisites
+## Project Components
+
+The project consists of three main components:
+
+1. **Face Detection Using Deep Neural Network (DNN)**
+   - File: `face_det_dnn.py`
+   - Description: Implements face detection using a DNN model with OpenCV.
+
+2. **Facial Recognition**
+   - File: `facial_rec.py`
+   - Description: Performs facial recognition using a pre-trained InceptionResnetV1 model from facenet_pytorch.
+
+3. **Main Video Processing Script**
+   - File: `main.py`
+   - Description: Integrates the face detection and facial recognition functionalities to process video streams from a file or webcam.
+
+## Features
+
+- **Face Detection**: Detects faces in video frames using a DNN model.
+- **Facial Recognition** (optional): Recognizes specific individuals from the detected faces (currently set up for "angelina").
+- **Video Input Flexibility**: Works with both video files and webcam streams.
+- **Real-Time Processing**: Displays the processed video in real-time with detected faces and recognition results.
+- **Video Saving Option**: Ability to save the processed video with annotations.
+
+## Usage
+
+1. **Set Up Your Environment**
+   - Ensure Python 3.x is installed.
+   - Install necessary libraries: `opencv-python`, `torch`, `torchvision`, `PIL`, `facenet_pytorch`.
+   - Download necessary model files for face detection and recognition.
+
+2. **Run the Main Script**
+   - Execute `main.py` to start the video processing.
+   - Use the `video_input` flag in `main.py` to switch between webcam and video file input.
+   - Set `save_video` to `True` in `main.py` if you wish to save the output.
+
+3. **Face Detection and Recognition**
+   - The system will automatically detect faces in the video stream.
+   - Uncomment the facial recognition section in `main.py` to enable recognition.
+
+## Requirements
+
 - Python 3.x
-- Virtual Environment (venv or similar)
-- IDE (VS Code or PyCharm recommended)
-- CUDA enabled GPU (optional, for PyTorch)
+- OpenCV (`cv2`)
+- PyTorch (`torch`)
+- PIL (Python Imaging Library)
+- facenet_pytorch
 
-#### Installation
-1. Clone the repository to your local machine.
-2. Set up a Python virtual environment:
+## Limitations
 
-python -m venv venv
+- The facial recognition component is configured to recognize specific individuals and requires a pre-trained model.
+- Real-time processing speed depends on the hardware capabilities, especially when using high-resolution video input.
 
-3. Activate the virtual environment:
-- Windows: `.\venv\Scripts\activate`
-- Unix or MacOS: `source venv/bin/activate`
-4. Install the required libraries:
+## Future Enhancements
 
-pip install -r requirements.txt
+- Expand the facial recognition database to recognize more individuals.
+- Improve the processing speed and accuracy of the system.
+- Implement additional features like emotion detection or age estimation.
 
-5. For CUDA enabled PyTorch, follow the instructions on the [official PyTorch website](https://pytorch.org/get-started/locally/).
-
-### Usage
-1. Run the face detection algorithm:
-- On a video file: `python video_face_detect.py --input <path_to_video>`
-- On webcam stream: `python webcam_face_detect.py`
-2. Train the facial recognition model using the provided notebook `ENM-2900-Project-1-Train-Model.ipynb`.
-3. Place the trained model in the `models` directory.
-4. Run the facial recognition on the detected faces:
-
-
-
-### Project Files Description
-- `video_face_detect.py`: Script for face detection in video files.
-- `webcam_face_detect.py`: Script for face detection using webcam.
-- `ENM-2900-Project-1-Train-Model.ipynb`: Jupyter notebook for training the model.
-- `main_video.py`: Main script for running the facial recognition model.
-- `requirements.txt`: List of Python dependencies.
-
-### Acknowledgments
-- OpenCV contributors
-- PyTorch community
-- Course instructors and TAs
+This system demonstrates a practical application of computer vision and deep learning for real-time face detection and recognition in video streams.
