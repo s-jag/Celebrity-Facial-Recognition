@@ -36,10 +36,6 @@ The code defines a class `FaceDetectionDNN` for detecting faces in an image usin
 - NumPy (`np`): A library for numerical operations, used here for array manipulations.
 
 
-# Facial Recognition Using PyTorch and facenet_pytorch
-
-This script defines a class `FacialRecognition` that uses a deep learning model to recognize faces in images.
-
 ## Class: FacialRecognition
 
 ### Initializer: `__init__(self)`
