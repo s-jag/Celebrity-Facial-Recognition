@@ -9,7 +9,7 @@ def main():
     input_video = "videos/angelina_1.mp4"
 
     # Set video_input=True for local video input, False for webcam input
-    video_input = True
+    video_input = False
     # Set save_video=True to save result
     save_video = False
 
@@ -17,7 +17,7 @@ def main():
     if video_input:
         cap = cv2.VideoCapture(input_video)
     else:
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(1)
 
     # Check video loading validity
     if not cap.isOpened():
