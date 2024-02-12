@@ -51,7 +51,7 @@ class FacialRecognition:
     def recognize_face(self, model, transform, frame, faces_bounding_box):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-        labels = ['angelina', 'not_angelina']
+        labels = ['rdj', 'not_rdj']
         label_color = [(255, 255, 255), (255, 255, 255)]
         self.num_faces_recognized = 0
 
@@ -85,7 +85,7 @@ class FacialRecognition:
                 
                 result = labels[preds]
     
-                if result == "angelina":
+                if result == "rdj":
                     print(f"adding to num_facial_recognition: {self.num_faces_recognized}")
                     self.num_faces_recognized += 1
 

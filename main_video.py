@@ -9,7 +9,7 @@ def main():
     input_video = "videos/angelina_1.mp4"
 
     # Set video_input=True for local video input, False for webcam input
-    video_input = False
+    video_input = True
     # Set save_video=True to save result
     save_video = False
 
@@ -36,9 +36,9 @@ def main():
     fddnn = FaceDetectionDNN()
 
     ### UNCOMMENT WHEN READY TO RUN FACIAL RECOGNITION ###
-    # fr = FacialRecognition()
-    # model, transform = fr.setup_model()
-    #
+    fr = FacialRecognition()
+    model, transform = fr.setup_model()
+    
 
     while cap.isOpened():
         # Capture frame by frame
@@ -59,10 +59,10 @@ def main():
 
         # Facial recognition
         ### UNCOMMENT WHEN READY TO RUN FACIAL RECOGNITION ###
-        # if bounding_boxes:
-        #     frame, result = fr.recognize_face(model, transform, frame, bounding_boxes)
-        # frame = fr.print_num_faces_recognized(frame)
-        #
+        if bounding_boxes:
+            frame, result = fr.recognize_face(model, transform, frame, bounding_boxes)
+        frame = fr.print_num_faces_recognized(frame)
+        
 
         # Display frame
         cv2.imshow('Frame', frame)
