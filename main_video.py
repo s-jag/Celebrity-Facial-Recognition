@@ -35,9 +35,9 @@ def main():
     # Setup face detection models
     fddnn = FaceDetectionDNN()
 
-    ### UNCOMMENT WHEN READY TO RUN FACIAL RECOGNITION ###
-    # fr = FacialRecognition()
-    # model, transform = fr.setup_model()
+    ## UNCOMMENT WHEN READY TO RUN FACIAL RECOGNITION ###
+    fr = FacialRecognition()
+    model, transform = fr.setup_model()
     #
 
     while cap.isOpened():
@@ -58,11 +58,11 @@ def main():
         print(f"----------")
 
         # Facial recognition
-        ### UNCOMMENT WHEN READY TO RUN FACIAL RECOGNITION ###
-        # if bounding_boxes:
-        #     frame, result = fr.recognize_face(model, transform, frame, bounding_boxes)
-        # frame = fr.print_num_faces_recognized(frame)
-        #
+        ## UNCOMMENT WHEN READY TO RUN FACIAL RECOGNITION ###
+        if bounding_boxes:
+            frame, result = fr.recognize_face(model, transform, frame, bounding_boxes)
+        frame = fr.print_num_faces_recognized(frame)
+        
 
         # Display frame
         cv2.imshow('Frame', frame)
