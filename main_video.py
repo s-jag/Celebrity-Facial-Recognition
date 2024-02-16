@@ -9,7 +9,7 @@ def main():
     input_video = "videos/angelina_1.mp4"
 
     # Set video_input=True for local video input, False for webcam input
-    video_input = False
+    video_input = True
     # Set save_video=True to save result
     save_video = False
 

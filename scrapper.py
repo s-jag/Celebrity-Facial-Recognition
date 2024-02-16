@@ -7,7 +7,7 @@ from face_det_dnn import *
 
 def main():
     # Input video path.
-    input_video = "videos/angelina_1.mp4"
+    input_video = "videos/rdj.mp4"
 
     # Set video_input=True for local video input, False for webcam input.
     video_input = True
@@ -61,7 +61,7 @@ def main():
                 detected_face = frame[bounding_box[1]:bounding_box[3], bounding_box[0]:bounding_box[2]]
                 print(f'detected_face: {detected_face}')
                 output_image_path = "saved_images"
-                subject_name = "angelina"
+                subject_name = "rdj"
                 cv2.imwrite(os.path.join(output_image_path, '{}_{}.jpg'.format(subject_name, uuid.uuid1())), detected_face)
         
         # Display frame.

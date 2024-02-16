@@ -35,8 +35,8 @@ class FaceDetectionDNN:
                 face_bounding_box = [x1, y1, x2, y2]
 
                 # Draw a rectangle around the face.
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
-                cv2.putText(frame, f'[{confidence:.2f}]', (x1, y1 - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                # cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
+                # cv2.putText(frame, f'[{confidence:.2f}]', (x1, y1 - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
 
                 faces_bounding_box.append(face_bounding_box)
 
