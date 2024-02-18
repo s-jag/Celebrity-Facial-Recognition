@@ -24,7 +24,8 @@ def main():
     if not cap.isOpened():
         print("Error with camera or input video.")
         exit()
-    fps = cap.get(cv2.CAP_PROP_FPS)
+    fps = 5
+    # cap.get(cv2.CAP_PROP_FPS)
 
     # Create video writer if save as video is True.
     if save_video:
