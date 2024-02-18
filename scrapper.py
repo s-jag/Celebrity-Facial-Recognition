@@ -7,7 +7,7 @@ from face_det_dnn import *
 
 def main():
     # Input video path.
-    input_video = "videos/rdj.mp4"
+    input_video = "videos/rdj_test.mp4"
 
     # Set video_input=True for local video input, False for webcam input.
     video_input = True
@@ -24,7 +24,7 @@ def main():
     if not cap.isOpened():
         print("Error with camera or input video.")
         exit()
-    fps = 5
+    fps = 2
     # cap.get(cv2.CAP_PROP_FPS)
 
     # Create video writer if save as video is True.

@@ -33,7 +33,7 @@ The project consists of three main components:
 
 1. **Set Up Your Environment**
    - Ensure Python 3.x is installed.
-   - Install necessary libraries: `opencv-python`, `torch`, `torchvision`, `PIL`, `facenet_pytorch`.
+   - Install necessary libraries: `opencv-python`, `torch`, `torchvision`, `PIL`, `facenet_pytorch` (can also use npm install -r requirements.txt)
    - Download necessary model files for face detection and recognition.
 
 2. **Run the Main Script**
